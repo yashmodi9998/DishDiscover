@@ -1,0 +1,79 @@
+<%- include('common/header',{title:'Recipe'}) %>
+<!-- This file is use to display specific dish detail. -->
+<div class="container mt-4">
+  <!-- If API return result it will check for its data -->
+  <% if (recipeData && recipeData.hits.length > 0) { %>
+  <div class="row">
+    <% recipeData.hits.forEach(hit => { %>
+    <div class="col-md-6">
+      <div class="card-body">
+        <!-- hit.recipe.label returns name of dish 
+        hit.recipe.image retirn image of dish
+        -->
+        <h2 class="card-title mb-4"><%= hit.recipe.label %></h2>
+        <img
+          src="<%= hit.recipe.image %>"
+          class="img-fluid"
+          alt="Recipe Image"
+        />
+        <!-- hit.recipe.source provides source of dish
+          hit.recipe.url provide URL of that source -->
+        <p class="card-text small">
+          Source:
+          <a href="<%= hit.recipe.url %>" style="text-decoration: none">
+            <%= hit.recipe.source %>
+          </a>
+        </p>
+        <!-- hit.recipe.dietLabels provide some diet labels that dish contains 
+        designed dark badges for this to show case it list
+        -->
+        <p class="card-text small">
+          <% if(hit.recipe.dietLabels.length>0){ %>Diet Labels:<%
+          hit.recipe.dietLabels.forEach(dietLabels => { %>
+          <span class="badge bg-dark me-1"><%= dietLabels %></span>
+          <% }); }%>
+        </p>
+        <!-- hit.recipe.healthLabels provide some health labels that dish contains 
+        designed blue badges for this to show case it list
+        -->
+        <p class="card-text small">
+          <% if(hit.recipe.healthLabels.length>0){ %>Health Labels:<%
+          hit.recipe.healthLabels.forEach(healthLabels => { %>
+          <span class="badge bg-success me-1"><%= healthLabels %></span>
+          <% }); }%>
+        </p>
+        <!-- hit.recipe.caution provide some caution labels that dish contains 
+        designed red badges for this to show case it list
+        -->
+        <p class="card-text small">
+          <% if(hit.recipe.cautions.length>0) { %>Cautions:<%
+          hit.recipe.cautions.forEach(caution => { %>
+          <span class="badge bg-danger me-1"><%= caution %></span>
+          <% }); }%>
+        </p>
+      </div>
+    </div>
+    <!-- hit.recipe.ingredients provide ingredeints that are use to make dish -->
+    <div class="col-md-6">
+      <h3 class="card-title mb-4">Ingredients</h3>
+      <ul class="list-group">
+        <% hit.recipe.ingredients.forEach(ingredient => { %>
+        <!-- on click of each ingredient it will redirect to findingredient with the name of ingredient  -->
+        <li class="list-group-item">
+          <a
+            href="/findingredient/<%= encodeURIComponent(ingredient.food) %>"
+            style="text-decoration: none; color: inherit"
+            ><%= ingredient.text %></a
+          >
+        </li>
+        <% }); %>
+      </ul>
+    </div>
+    <% }); %>
+  </div>
+  <% } else { %>
+  <p>No results found.</p>
+  <% } %>
+</div>
+
+<%- include('common/footer') %>

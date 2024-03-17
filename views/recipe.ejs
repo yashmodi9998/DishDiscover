@@ -1,0 +1,47 @@
+<!-- This file is use to get all possible result of recipe -->
+<%- include('common/header',{title:'List of Recipes'}) %>
+
+<div class="container mt-4">
+  <!-- If API return result it will check for its data -->
+  <% if (recipeData && recipeData.hits.length > 0) { %>
+  <!-- 
+      set bootstrap class for the following fields:
+      recipeData -> response
+      recipeData.hits.length -> Number of recipes
+      recipeData.q -> search query
+      recipe -> holds all recipes array
+      recipe.label -> name of dish
+      recipe.calories -> calories in dish
+      recipe.image -> image of dish
+    -->
+  <h1 class="mb-4">Search for <%= recipeData.q %></h1>
+  <div class="row">
+    <% for (let i = 0; i < recipeData.hits.length; i++) { %> <% const recipe =
+    recipeData.hits[i].recipe; %>
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title h5 mb-3"><%= recipe.label %></h2>
+          <p class="card-text mb-2 small">
+            Calories: <%= recipe.calories.toFixed(2) %> kcal
+          </p>
+          <!-- On click of image it will redirect to specific dish recipe -->
+          <a href="<%= `/recipe/${recipeData.q}/${i}/${i + 1}`  %>">
+            <img
+              src="<%= recipe.image %>"
+              class="img-fluid"
+              alt="Recipe Image"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+    <% } %>
+  </div>
+  <% } else { %>
+  <!-- If API doesn't  return result -->
+  <p>No results found.</p>
+  <% } %>
+</div>
+
+<%- include('common/footer') %>

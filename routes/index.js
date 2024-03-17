@@ -6,6 +6,10 @@ const axios = require("axios");
 router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
 });
+/*
+  Route to fetch recipes based on the recipe name provided in the request body.
+  Uses the EDAMAM API to search for recipes.
+ */
 router.post("/recipe", async (req, res) => {
   const recipeName = req.body.recipeName;
   try {
@@ -19,6 +23,9 @@ router.post("/recipe", async (req, res) => {
     res.status(500).send("Error fetching data from EDAMAM API");
   }
 });
+/*
+  Route to fetch recipes based on the recipe name, "from", and "to" parameters provided in the URL.
+ */
 router.get("/recipe/:recipeName/:from/:to", async (req, res) => {
   const { recipeName, from, to } = req.params;
 
@@ -33,13 +40,16 @@ router.get("/recipe/:recipeName/:from/:to", async (req, res) => {
     res.status(500).send("Error fetching recipe details from EDAMAM API");
   }
 });
-
+/*
+  Route to find grocery stores selling a particular ingredient.
+  Uses the Google Maps Places API to search for nearby grocery stores for that ingredient.
+ */
 router.get("/findingredient/:ingredient", async (req, res) => {
   const ingredient = req.params;
 
   try {
     const response =
-      await axios.get(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=find%20${ingredient}%20selling%20grocery%20store%20near%20me&key=AIzaSyCchp4b3tIpoXCg80vnhbw2omVXLDVSaQw
+      await axios.get(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=show%20${ingredient}%20grocery%20shop%20near%20me&key=AIzaSyCchp4b3tIpoXCg80vnhbw2omVXLDVSaQw
     `);
     const ingredientData = response.data;
 

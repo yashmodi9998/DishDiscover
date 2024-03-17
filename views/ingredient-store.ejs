@@ -7,7 +7,9 @@
     <div class="col-md-4 mb-4">
       <div class="card">
         <div class="card-body">
+          <!-- Display the name of the grocery store -->
           <h5 class="card-title"><%= ingredientData.results[i].name %></h5>
+          <!-- Display the formatted address of the grocery store -->
           <p class="card-text">
             <%= ingredientData.results[i].formatted_address %>
           </p>
@@ -17,7 +19,7 @@
     <% } %>
   </div>
   <% } else { %>
-  <!-- If API doesn't  return result -->
+  <!-- If no results are returned from the API -->
   <p>No results found.</p>
   <% } %>
 </div>

@@ -5,7 +5,7 @@ require("dotenv").config();
 const EDAMAM_APP_ID = process.env.EDAMAM_APP_ID;
 const EDAMAM_APP_KEY = process.env.EDAMAM_APP_KEY;
 const GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY;
-/* GET home page. */
+
 router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
 });
@@ -29,20 +29,22 @@ router.post("/recipe", async (req, res) => {
 /*
   Route to fetch recipes based on the recipe name, "from", and "to" parameters provided in the URL.
  */
-router.get("/recipe/:recipeName/:from/:to", async (req, res) => {
-  const { recipeName, from, to } = req.params;
+router.get("/recipe/:recipeName", async (req, res) => {
+  const { recipeName } = req.params;
+  const from = req.query.from || "0"; // Default value for from
+  const to = req.query.to || "1"; // Default value for to
 
   try {
     const response = await axios.get(
       `https://api.edamam.com/search?q=${recipeName}&app_id=${EDAMAM_APP_ID}&app_key=${EDAMAM_APP_KEY}&from=${from}&to=${to}`
     );
-    // console.log(response.data);
     const recipeData = response.data;
     res.render("recipe-details", { recipeData });
   } catch (error) {
     res.status(500).send("Error fetching recipe details from EDAMAM API");
   }
 });
+
 /*
   Route to find grocery stores selling a particular ingredient.
   Uses the Google Maps Places API to search for nearby grocery stores for that ingredient.

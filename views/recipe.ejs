@@ -12,13 +12,14 @@
           <h3 class="card-title recipe-card-title h5 mb-3">
             <%= recipe.label %>
           </h3>
-          <a href="<%= `/recipe/${recipeData.q}/${i}/${i + 1}`  %>">
+          <a href="/recipe/<%= encodeURIComponent(recipe.label) %>">
             <img
               src="<%= recipe.image %>"
               class="img-fluid"
               alt="Recipe Image"
             />
           </a>
+
           <div class="row mt-2">
             <div class="col">
               <p class="card-text mb-2 small">

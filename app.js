@@ -4,7 +4,7 @@ var path = require("path");
 var indexRouter = require("./routes/index");
 const app = express();
 const port = process.env.PORT || "8888";
-
+app.use(express.static("public"));
 //set up server listening
 
 app.listen(port, () => {
@@ -20,9 +20,5 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-
-
-
-
 
 module.exports = app;

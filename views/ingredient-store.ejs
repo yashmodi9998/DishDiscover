@@ -1,26 +1,33 @@
 <%- include('common/header',{title:'Stores'}) %>
+
 <div class="container mt-4">
-  <% if (ingredientData && ingredientData.results.length > 0) { %>
-  <h1 class="mb-4">Search</h1>
-  <div class="row">
-    <% for (let i = 0; i < ingredientData.results.length; i++) { %>
-    <div class="col-md-4 mb-4">
-      <div class="card">
-        <div class="card-body">
-          <!-- Display the name of the grocery store -->
-          <h5 class="card-title"><%= ingredientData.results[i].name %></h5>
-          <!-- Display the formatted address of the grocery store -->
-          <p class="card-text">
-            <%= ingredientData.results[i].formatted_address %>
-          </p>
+  <% if (data && data.results.length > 0) { %>
+  <h1 class="mb-4">Stores selling <%= name %></h1>
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <% data.results.forEach(store => { %>
+    <div class="col">
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=<%= store.geometry.location.lat %>,<%= store.geometry.location.lng %>"
+        target="_blank"
+        class="card-link"
+      >
+        <div class="card card-color h-100">
+          <div class="card-body">
+            <!-- Display the name of the grocery store -->
+            <h5 class="card-title store-card-title"><%= store.name %></h5>
+            <!-- Display the formatted address of the grocery store -->
+            <p class="card-text"><%= store.formatted_address %></p>
+          </div>
         </div>
-      </div>
+      </a>
     </div>
-    <% } %>
+    <% }); %>
   </div>
   <% } else { %>
   <!-- If no results are returned from the API -->
-  <p>No results found.</p>
+  <div class="alert alert-warning" role="alert">
+    No stores found near <%= name %>. Please try again later.
+  </div>
   <% } %>
 </div>
 

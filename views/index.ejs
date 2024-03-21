@@ -1,12 +1,9 @@
-<!-- index.ejs -->
-
 <%- include('common/header',{title:'Home'}) %>
 
 <div class="container mt-4">
-  <h1 class="mb-4">Search for recipe</h1>
-  <!-- Form that is use to search recipe 
-      it will redirect to recipe route where EDAMAM API will be called to get all possible results.
-  -->
+ 
+  <h1 class="mb-4">Search for Recipe</h1>
+  <!-- Form to search for recipes -->
   <form action="/recipe" method="POST">
     <div class="input-group mb-3">
       <input

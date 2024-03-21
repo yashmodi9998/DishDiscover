@@ -1,7 +1,10 @@
 var express = require("express");
 var router = express.Router();
 const axios = require("axios");
-
+require("dotenv").config();
+const EDAMAM_APP_ID = process.env.EDAMAM_APP_ID;
+const EDAMAM_APP_KEY = process.env.EDAMAM_APP_KEY;
+const GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY;
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
@@ -14,7 +17,7 @@ router.post("/recipe", async (req, res) => {
   const recipeName = req.body.recipeName;
   try {
     const response = await axios.get(
-      `https://api.edamam.com/search?q=${recipeName}&app_id=9fb851ae&app_key=f4ff5cdc983765fa461efde590364e44`
+      `https://api.edamam.com/search?q=${recipeName}&app_id=${EDAMAM_APP_ID}&app_key=${EDAMAM_APP_KEY}`
     );
 
     const recipeData = response.data;
@@ -31,7 +34,7 @@ router.get("/recipe/:recipeName/:from/:to", async (req, res) => {
 
   try {
     const response = await axios.get(
-      `https://api.edamam.com/search?q=${recipeName}&app_id=9fb851ae&app_key=f4ff5cdc983765fa461efde590364e44&from=${from}&to=${to}`
+      `https://api.edamam.com/search?q=${recipeName}&app_id=${EDAMAM_APP_ID}&app_key=${EDAMAM_APP_KEY}&from=${from}&to=${to}`
     );
     // console.log(response.data);
     const recipeData = response.data;
@@ -45,15 +48,15 @@ router.get("/recipe/:recipeName/:from/:to", async (req, res) => {
   Uses the Google Maps Places API to search for nearby grocery stores for that ingredient.
  */
 router.get("/findingredient/:ingredient", async (req, res) => {
-  const ingredient = req.params;
-
+  const ingredient = req.params.ingredient;
+  console.log(ingredient);
   try {
     const response =
-      await axios.get(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=show%20${ingredient}%20grocery%20shop%20near%20me&key=AIzaSyCchp4b3tIpoXCg80vnhbw2omVXLDVSaQw
+      await axios.get(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=show%20${ingredient}%20grocery%20shop%20near%20me&key=${GOOGLE_MAPS_API_KEY}
     `);
     const ingredientData = response.data;
 
-    res.render("ingredient-store", { ingredientData });
+    res.render("ingredient-store", { data: ingredientData, name: ingredient });
   } catch (error) {
     res.status(500).send("Error fetching recipe details from Maps API");
   }

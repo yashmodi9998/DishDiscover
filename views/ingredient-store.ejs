@@ -6,27 +6,26 @@
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
     <% data.results.forEach(store => { %>
     <div class="col">
-      <a
-        href="https://www.google.com/maps/search/?api=1&query=<%= store.geometry.location.lat %>,<%= store.geometry.location.lng %>"
-        target="_blank"
-        class="card-link"
-      >
-        <div class="card card-color h-100">
-          <div class="card-body">
-            <!-- Display the name of the grocery store -->
-            <h5 class="card-title store-card-title"><%= store.name %></h5>
-            <!-- Display the formatted address of the grocery store -->
-            <p class="card-text"><%= store.formatted_address %></p>
-          </div>
+      <div class="card card-color h-100">
+        <div class="card-body align-items-stretch">
+          <!-- Display the name of the grocery store -->
+          <h5 class="card-title store-card-title"><%= store.name %></h5>
+          <!-- Display the formatted address of the grocery store -->
+          <p class="card-text"><%= store.formatted_address %></p>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=<%= store.geometry.location.lat %>,<%= store.geometry.location.lng %>"
+            class="btn btn-outline-dark text-white"
+            >Find Store</a
+          >
         </div>
-      </a>
+      </div>
     </div>
     <% }); %>
   </div>
   <% } else { %>
   <!-- If no results are returned from the API -->
   <div class="alert alert-warning" role="alert">
-    No stores found near <%= name %>. Please try again later.
+    No stores found for <%= name %>. Please try again later.
   </div>
   <% } %>
 </div>

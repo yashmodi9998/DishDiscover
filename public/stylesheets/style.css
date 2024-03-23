@@ -40,14 +40,19 @@ h1 {
 }
 
 h2,
-h3 {
-  font-weight: 600;
+h3,
+h4,h5{
   font-family: 'Sorts Mill Goudy';
   font-weight: 700;
 }
 
 .recipe-card-title {
-  /* color: white; */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.store-card-title {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -58,4 +63,3 @@ h3 {
   text-decoration: none;
 
 }
-

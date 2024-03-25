@@ -1,18 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital@0;1&family=Tilt+Prism&display=swap');
 
 body {
-  background-color: #F5F5DC;
+  background-color: #EEEEEE;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
-.card-color {
-  color: white;
-  background-color: rgb(123, 76, 123);
-}
-
-.table {
-  --bs-table-bg: rgb(123, 76, 123);
-  --bs-table-color: white;
+.header {
+  background-color: #9B4444;
 }
 
 .heading-txt {
@@ -27,12 +21,7 @@ body {
   color: #F5F5DC;
 }
 
-.header {
-  background-color: rgb(56, 0, 56);
-}
-
 h1 {
-  /* text-align: center; */
   color: #0c0c0c;
   font-family: 'Sorts Mill Goudy';
   font-size: 35px;
@@ -41,9 +30,15 @@ h1 {
 
 h2,
 h3,
-h4,h5{
+h4,
+h5 {
   font-family: 'Sorts Mill Goudy';
-  font-weight: 700;
+  font-weight: 600;
+}
+
+.card-color {
+  color: white;
+  background-color: #C68484;
 }
 
 .recipe-card-title {
@@ -58,8 +53,25 @@ h4,h5{
   text-overflow: ellipsis;
 }
 
-/* CSS for the card link */
-.card-link {
-  text-decoration: none;
+.btn {
+  color: white;
+  background-color: #9B4444;
+}
 
+.btn:hover {
+  color: white;
+  background-color: black;
+}
+
+.table {
+  --bs-table-bg: #C68484;
+  --bs-table-color: white;
+}
+
+td a {
+  color: white;
+}
+
+td a:hover {
+  color: #9B4444;
 }

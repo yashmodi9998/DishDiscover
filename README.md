@@ -29,3 +29,29 @@ Before running the application, ensure you have the following:
 
    ```bash
    git clone (https://github.com/yashmodi9998/DishDiscover)[https://github.com/yashmodi9998/DishDiscover.git]
+2. Navigate to the Project Directory
+
+Navigate to the project directory using the command line or terminal:
+
+```bash
+cd DishDiscover
+```
+3. Create .env
+
+Install the required dependencies using npm:
+
+```bash
+
+EDAMAM_APP_ID = your-edamam-api-id
+EDAMAM_APP_KEY = your-edamam-api-key
+GOOGLE_MAPS_API_KEY = your-google-places-api-key
+```
+
+4. Install Dependencies Using npm
+
+Install the required dependencies using npm:
+
+```bash
+npm install
+npm run dev
+```

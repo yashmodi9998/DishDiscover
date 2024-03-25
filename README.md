@@ -47,7 +47,7 @@ EDAMAM_APP_KEY = your-edamam-api-key
 GOOGLE_MAPS_API_KEY = your-google-places-api-key
 ```
 
-4. Install Dependencies Using npm
+4. Install Dependencies Using npm and start server
 
 Install the required dependencies using npm:
 
@@ -55,3 +55,14 @@ Install the required dependencies using npm:
 npm install
 npm run dev
 ```
+4. Open the browser
+
+Open your web browser and navigate to http://localhost:8888 to access the application.
+
+## Usage
+- 1.Enter the name of the recipe you want to search for in the provided input field.
+- 2.Click on the search button to retrieve a list of matching recipes.
+- 3.Select a recipe from the list to view its details, including cautions, health labels, and diet labels.
+- 4.View the ingredients required for the selected recipe.
+- 5.Click on the "View Stores" button to find stores selling the ingredients.
+- 6.View the locations of nearby stores by clicking Find Stores.

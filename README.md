@@ -38,8 +38,6 @@ cd DishDiscover
 ```
 3. Create .env
 
-Install the required dependencies using npm:
-
 ```bash
 
 EDAMAM_APP_ID = your-edamam-api-id

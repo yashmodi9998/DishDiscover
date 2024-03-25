@@ -1,7 +1,7 @@
-<%- include('common/header',{title:'Recipe'}) %>
 <!-- This file is used to display specific dish detail. -->
+<%- include('common/header',{title:'Recipe'}) %>
+
 <div class="container mt-4">
-  
   <!-- If API returns result it will check for its data -->
   <% if (recipeData && recipeData.hits.length > 0) { %> <%
   recipeData.hits.forEach(hit => { %>
@@ -32,7 +32,7 @@
             <strong>Dish Origin:</strong>
             <span class="badge bg-primary"><%= hit.recipe.cuisineType %></span>
           </p>
-          <!-- Diet Labels -->
+          <!-- if Diet Labels -->
           <% if (hit.recipe.dietLabels && hit.recipe.dietLabels.length > 0) { %>
 
           <p class="card-text small">
@@ -41,7 +41,7 @@
               class="badge bg-dark me-1"
               ><%= dietLabel %></span
             ><% }); %> <% } %>
-            <!-- Health Labels -->
+            <!-- if Health Labels -->
             <% if (hit.recipe.healthLabels && hit.recipe.healthLabels.length >
             0) { %>
           </p>
@@ -54,7 +54,7 @@
             ><% }); %>
           </p>
           <% } %>
-          <!-- Cautions -->
+          <!--if  Cautions -->
           <% if (hit.recipe.cautions && hit.recipe.cautions.length > 0) { %>
 
           <p class="card-text small">
@@ -77,7 +77,6 @@
   </div>
 
   <div class="card card-color table-responsive">
-    <!-- <div class="card-body"> -->
     <h2 class="card-title mt-4 text-center">Ingredients</h2>
     <table class="table table-color">
       <thead>
@@ -89,12 +88,14 @@
         </tr>
       </thead>
       <tbody>
+        <!-- search for all ingredients -->
         <% hit.recipe.ingredients.forEach((ingredient, index) => { %>
         <tr>
           <th scope="row"><%= index + 1 %></th>
           <td><%= ingredient.food %></td>
           <td><%= ingredient.quantity %> <%= ingredient.measure %></td>
           <td>
+            <!-- calls findingredient route with name of ingredient -->
             <a href="/findingredient/<%= encodeURIComponent(ingredient.food) %>"
               >View Stores</a
             >
@@ -103,9 +104,9 @@
         <% }); %>
       </tbody>
     </table>
-    <!-- </div> -->
   </div>
-  <% }); %> <% } else { %>
+  <% }); } else { %>
+  <!-- if no result found -->
   <p>No results found.</p>
   <% } %>
 </div>

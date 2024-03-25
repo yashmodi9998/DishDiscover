@@ -1,14 +1,18 @@
+/* Importing fonts from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital@0;1&family=Tilt+Prism&display=swap');
 
+/* Setting  styles for the body */
 body {
   background-color: #EEEEEE;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
+/* Styling for the header */
 .header {
   background-color: #9B4444;
 }
 
+/* Styling for headings text(DishDiscover) */
 .heading-txt {
 
   color: white;
@@ -16,11 +20,12 @@ body {
   font-size: 36px;
 }
 
+/* hover effect for headings text(DishDiscover) */
 .heading-txt:hover {
-
   color: #F5F5DC;
 }
 
+/* Styling for h1 tags */
 h1 {
   color: #0c0c0c;
   font-family: 'Sorts Mill Goudy';
@@ -28,6 +33,7 @@ h1 {
   font-weight: 600;
 }
 
+/* Styling for h2, h3, h4, and h5 tags */
 h2,
 h3,
 h4,
@@ -36,42 +42,55 @@ h5 {
   font-weight: 600;
 }
 
+/* Styling for elements with card-color class */
 .card-color {
   color: white;
   background-color: #C68484;
 }
 
+/* Styling for elements with recipe-card-title class */
 .recipe-card-title {
   overflow: hidden;
+  /* Hide overflowing text */
   white-space: nowrap;
+  /* Prevent text wrapping */
   text-overflow: ellipsis;
+  /* Show ellipsis (...) for overflowed text */
 }
 
 .store-card-title {
   overflow: hidden;
+  /* Hide overflowing text */
   white-space: nowrap;
+  /* Prevent text wrapping */
   text-overflow: ellipsis;
+  /* Show ellipsis (...) for overflowed text */
 }
 
+/* Styling for buttons */
 .btn {
   color: white;
   background-color: #9B4444;
 }
 
+/* Hover effect for buttons */
 .btn:hover {
   color: white;
   background-color: black;
 }
 
+/* Styling for tables */
 .table {
   --bs-table-bg: #C68484;
   --bs-table-color: white;
 }
 
+/* Styling for links within table cells */
 td a {
   color: white;
 }
 
+/* Hover effect for links within table cells */
 td a:hover {
   color: #9B4444;
 }

@@ -1,18 +1,25 @@
+<!-- This file is used to display all possible dish. -->
 <%- include('common/header',{title:'List of Recipes'}) %>
 
 <div class="container mt-4">
+  <!-- if recipeData has value and hits  -->
   <% if (recipeData && recipeData.hits.length > 0) { %>
   <h1 class="mb-4">Showing results for <%= recipeData.q %></h1>
   <div class="row">
+    <!-- for loop for fetching all the hits of recipes
+    and created recipe variable for recipe data
+    -->
     <% for (let i = 0; i < recipeData.hits.length; i++) { %> <% const recipe =
     recipeData.hits[i].recipe; %>
     <div class="col-md-4 mb-4">
       <div class="card h-100 card-color">
         <div class="card-body">
           <h3 class="card-title recipe-card-title h5 mb-3">
+            <!-- name of the recipe -->
             <%= recipe.label %>
           </h3>
-          <a href="/recipe/<%= encodeURIComponent(recipe.label) %>">
+          <!-- link to redirect recipe with searched query and num of hit -->
+          <a href="/recipe/<%= recipeData.q %>/<%= i %>">
             <img
               src="<%= recipe.image %>"
               class="img-fluid"
@@ -24,6 +31,7 @@
             <div class="col">
               <p class="card-text mb-2 small">
                 <strong>Calories:</strong>
+                <!-- to fetch calories value -->
                 <span class="calories-value"
                   ><%= recipe.calories.toFixed(2) %> kcal</span
                 >
@@ -32,6 +40,7 @@
             <div class="col">
               <p class="card-text mb-2 small">
                 <strong>Total Ingredients:</strong>
+                <!-- to fetch ingredients value -->
                 <span class="ingredients-value"
                   ><%= recipe.ingredients.length %></span
                 >
@@ -44,6 +53,7 @@
     <% } %>
   </div>
   <% } else { %>
+  <!-- if no result found -->
   <p>No results found.</p>
   <% } %>
 </div>

@@ -28,7 +28,7 @@ Before running the application, ensure you have the following:
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/yashmodi9998/DishDiscover
+   git clone https://github.com/yashmodi9998/DishDiscover.git
 2. Navigate to the Project Directory
 
 Navigate to the project directory using the command line or terminal:

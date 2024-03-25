@@ -1,0 +1,31 @@
+# DishDiscover Project
+
+This project is a web application developed using Node.js, Express.js, and EJS engine. Its purpose is to allow users to search for recipes based on their name, retrieve details about the selected recipe including cautions, health labels, and diet labels, and provide information about the ingredients required for the recipe. Additionally, users can find nearby stores selling the ingredients using the Google Places API and view the exact location of those stores on a map using the Google Maps API.
+
+## Features
+
+- **Recipe Search**: Users can enter the name of a recipe to search for and retrieve a list of matching recipes using the Edamam API.
+
+- **Recipe Details**: Upon selecting a specific recipe, users can view details such as cautions, health labels, and diet labels associated with that recipe.
+
+- **Ingredient Details**: The application provides information about the ingredients required for the selected recipe, including the name and quantity of each ingredient, fetched from the Edamam API.
+
+- **Find Nearby Stores**: Users can find nearby stores selling the ingredients needed for the recipe using the Google Places API.
+
+- **View Store Locations**: The application displays the exact locations of the nearby stores on a map using the Google Maps API.
+
+## Prerequisites
+
+Before running the application, ensure you have the following:
+
+- Node.js installed on your machine.
+- Edamam API key for recipe data retrieval.
+- Google Places API key for finding nearby stores.
+- Google Maps API key for displaying store locations on a map.
+
+## Installation
+
+1. Clone this repository to your local machine:
+
+   ```bash
+   git clone (https://github.com/yashmodi9998/DishDiscover)[https://github.com/yashmodi9998/DishDiscover.git]

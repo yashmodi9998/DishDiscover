@@ -8,11 +8,17 @@ body {
 }
 
 /* Styling for the header */
-.header {}
 
 .navbar {
   background-color: #000000;
   justify-content: center;
+
+}
+
+.navbar a {
+  margin: 0px;
+  padding: 0px;
+
 }
 
 /* Styling for headings text(DishDiscover) */

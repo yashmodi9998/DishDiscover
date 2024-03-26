@@ -8,8 +8,11 @@ body {
 }
 
 /* Styling for the header */
-.header {
+.header {}
+
+.navbar {
   background-color: #000000;
+  justify-content: center;
 }
 
 /* Styling for headings text(DishDiscover) */
@@ -53,7 +56,6 @@ h5 {
 /* Styling for elements with card-color class */
 .card-color {
   color: white;
-
   background-color: #f4efd7;
 }
 

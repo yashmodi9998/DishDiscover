@@ -3,18 +3,17 @@
 
 /* Setting  styles for the body */
 body {
-  background-color: #EEEEEE;
+  background-color: #ebb922;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 /* Styling for the header */
 .header {
-  background-color: #9B4444;
+  background-color: #000000;
 }
 
 /* Styling for headings text(DishDiscover) */
 .heading-txt {
-
   color: white;
   font-family: 'Tilt Prism';
   font-size: 36px;
@@ -22,12 +21,21 @@ body {
 
 /* hover effect for headings text(DishDiscover) */
 .heading-txt:hover {
-  color: #F5F5DC;
+  color: #ebb922;
+}
+
+/* for banner image on landing page */
+.full-screen-image {
+  background-image: url('../images/recipe-banner.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+
 }
 
 /* Styling for h1 tags */
 h1 {
-  color: #0c0c0c;
+  text-align: center;
   font-family: 'Sorts Mill Goudy';
   font-size: 35px;
   font-weight: 600;
@@ -45,11 +53,23 @@ h5 {
 /* Styling for elements with card-color class */
 .card-color {
   color: white;
-  background-color: #C68484;
+
+  background-color: #f4efd7;
+}
+
+.card-title {
+  color: #000000;
+  font-weight: 600;
+}
+
+.card-text {
+  color: black;
 }
 
 /* Styling for elements with recipe-card-title class */
 .recipe-card-title {
+
+  text-align: center;
   overflow: hidden;
   /* Hide overflowing text */
   white-space: nowrap;
@@ -69,8 +89,8 @@ h5 {
 
 /* Styling for buttons */
 .btn {
-  color: white;
-  background-color: #9B4444;
+  color: rgb(0, 0, 0);
+  background-color: #ebb922;
 }
 
 /* Hover effect for buttons */
@@ -79,18 +99,22 @@ h5 {
   background-color: black;
 }
 
+.table-card {
+  background-color: #ffda45;
+}
+
 /* Styling for tables */
 .table {
-  --bs-table-bg: #C68484;
-  --bs-table-color: white;
+  --bs-table-bg: #ffda45;
+  --bs-table-color: rgb(0, 0, 0);
 }
 
 /* Styling for links within table cells */
 td a {
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 /* Hover effect for links within table cells */
 td a:hover {
-  color: #9B4444;
+  color: #2c0000;
 }

@@ -76,7 +76,7 @@
     </div>
   </div>
 
-  <div class="card card-color table-responsive">
+  <div class="card card-color table-card table-responsive">
     <h2 class="card-title mt-4 text-center">Ingredients</h2>
     <table class="table table-color">
       <thead>
@@ -92,12 +92,15 @@
         <% hit.recipe.ingredients.forEach((ingredient, index) => { %>
         <tr>
           <th scope="row"><%= index + 1 %></th>
-          <td><%= ingredient.food %></td>
+          <td>
+            <%= ingredient.food.charAt(0).toUpperCase() +
+            ingredient.food.slice(1) %>
+          </td>
           <td><%= ingredient.quantity %> <%= ingredient.measure %></td>
           <td>
             <!-- calls findingredient route with name of ingredient -->
             <a href="/findingredient/<%= encodeURIComponent(ingredient.food) %>"
-              >View Stores</a
+              >Find in store</a
             >
           </td>
         </tr>

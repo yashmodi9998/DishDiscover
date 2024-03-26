@@ -1,18 +1,33 @@
 <%- include('common/header',{title:'Home'}) %>
-<div class="container mt-4">
-  <h1 class="mb-4">Search for Recipe</h1>
-  <!-- Form to search for recipes -->
-  <form action="/recipe" method="POST">
-    <div class="input-group mb-3">
-      <input
-        type="text"
-        name="recipeName"
-        class="form-control"
-        placeholder="Enter recipe name"
-      />
-      <button type="submit" class="btn">Search</button>
+
+<!-- Form to search for recipes -->
+<div class="full-screen-image d-flex justify-content-center align-items-center">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md"></div>
+      <div class="col-md-8">
+        <h1 class="text-white mb-2">
+          Unleash your inner chef with our recipe finder !!
+        </h1>
+        <!-- HTML form -->
+        <form action="/recipe" method="POST" class="mb-3">
+          <div class="input-group">
+            <input
+              type="text"
+              name="recipeName"
+              class="form-control"
+              placeholder="Enter recipe name"
+              required
+            />
+            <div class="input-group-append">
+              <button type="submit" class="btn">Search</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md"></div>
     </div>
-  </form>
+  </div>
 </div>
 
 <%- include('common/footer') %>

@@ -4,7 +4,10 @@
 <div class="container mt-4">
   <!-- if recipeData has value and hits  -->
   <% if (recipeData && recipeData.hits.length > 0) { %>
-  <h1 class="mb-4">Showing results for <%= recipeData.q %></h1>
+  <h1 class="mb-4">
+    Showing results for <%= recipeData.q.charAt(0).toUpperCase() +
+    recipeData.q.slice(1) %>
+  </h1>
   <div class="row">
     <!-- for loop for fetching all the hits of recipes
     and created recipe variable for recipe data

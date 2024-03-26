@@ -4,17 +4,19 @@
 <div class="container mt-4">
   <!-- if api has data and its length -->
   <% if (data && data.results.length > 0) { %>
-  <h1 class="mb-4">Stores selling <%= name %></h1>
+  <h1 class="mb-4">
+    Stores selling <%= name.charAt(0).toUpperCase() + name.slice(1) %>
+  </h1>
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
     <!-- loop to get all stores fetched from the api -->
     <% data.results.forEach(store => { %>
     <div class="col">
       <div class="card card-color h-100">
-        <div class="card-body align-items-stretch">
+        <div class="card-body">
           <!-- Display the name of the grocery store -->
           <h5 class="card-title store-card-title"><%= store.name %></h5>
           <!-- Display the formatted address of the grocery store -->
-          <p class="card-text"><%= store.formatted_address %></p>
+          <p class="card-text "><%= store.formatted_address %></p>
           <!-- call google map api to get exact location from the google map api -->
           <a
             href="https://www.google.com/maps/search/?api=1&query=<%= store.geometry.location.lat %>,<%= store.geometry.location.lng %>"
@@ -28,7 +30,10 @@
   </div>
   <% } else { %>
   <!-- If no results are returned from the API -->
-  <p>No stores found for <%= name %>. Please try again later.</p>
+  <p>
+    No stores found for <%= name.charAt(0).toUpperCase() + name.slice(1) %>.
+    Please try again later.
+  </p>
   <% } %>
 </div>
 
